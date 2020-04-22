@@ -1,0 +1,10 @@
+<resources>
+    <string name="onboarding_welcome_title">Welcome to Shoe Store</string>
+    <string name="onboarding_welcome_subtitle">Lets add our first shoe entry</string>
+    <string name="btn_onboarding_welcome_forward_title">Instructions</string>
+    <string name="btn_onboarding_instructions_forward_title">Continue</string>
+    <string name="onboarding_instructions_1_title">Start by adding a shoe with the button</string>
+    <string name="onboarding_instructions_1_subtitle">Te shoe will appear in the shoe list</string>
+    <string name="onboarding_instructions_2_title">Make sure your shoes info is correct</string>
+    <string name="onboarding_instructions_2_subtitle">you can always edit your shoe selecting it</string>
+</resources>

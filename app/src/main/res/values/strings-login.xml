@@ -1,0 +1,7 @@
+<resources>
+    <string name="login_title">Welcome, please Login In</string>
+    <string name="input_hint_email">User</string>
+    <string name="input_hint_password">Password</string>
+    <string name="btn_login_label">Login</string>
+    <string name="btn_logging_in_existing_account_label">Logging in with an existing account</string>
+</resources>

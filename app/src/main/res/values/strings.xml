@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <string name="add_image_label">Add image</string>
+    <string name="back_button_description">Back button</string>
+</resources>

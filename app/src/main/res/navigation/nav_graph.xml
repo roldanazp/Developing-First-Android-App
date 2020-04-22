@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreenFragment"
+    tools:ignore="UnusedNavigation">
+<!--  For some reason lint mark this navigation as not reference for any layout file
+  hence is on the main activity. thats the reason for tools:ignore="UnusedNavigation"-->
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.udacity.shoestore.modules.splash.SplashScreenFragment"
+        android:label="fragmentSplashScreen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_splashScreenFragment_to_shoeListFragment"
+            app:destination="@id/shoeListFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_splashScreenFragment_to_onboardingWelcomeFragment"
+            app:destination="@id/onboardingWelcomeFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.udacity.shoestore.modules.login.LoginFragment"
+        android:label="fragmentLogin"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_onboardingWelcomeFragment"
+            app:destination="@id/onboardingWelcomeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingWelcomeFragment"
+        android:name="com.udacity.shoestore.modules.onboarding.welcome.OnboardingWelcomeFragment"
+        android:label="fragmentOnboardingWelcome"
+        tools:layout="@layout/fragment_onboarding_welcome" >
+        <action
+            android:id="@+id/action_onboardingWelcomeFragment_to_onboardingInstructionsFragment"
+            app:destination="@id/onboardingInstructions1Fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingInstructions1Fragment"
+        android:name="com.udacity.shoestore.modules.onboarding.instructions.OnboardingInstructionsAddShoeFragment"
+        android:label="fragmentOnboarding1Instructions"
+        tools:layout="@layout/fragment_onboarding_instructions_add_shoe" >
+        <action
+            android:id="@+id/action_onboardingInstructionsAddShoeFragment_to_onboardingInstructionsFillShoeFieldsFragment"
+            app:destination="@id/onboardingInstructions2Fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingInstructions2Fragment"
+        android:name="com.udacity.shoestore.modules.onboarding.instructions.OnboardingInstructionsFillShoeFieldsFragment"
+        android:label="fragmentOnboarding2Instructions"
+        tools:layout="@layout/fragment_onboarding_instructions_fill_shoe_fields" >
+        <action
+            android:id="@+id/action_onboardingInstructionsFillShoeFieldsFragment_to_shoeListFragment"
+            app:destination="@id/shoeListFragment"
+            app:popUpTo="@id/onboardingWelcomeFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/shoeListFragment"
+        android:name="com.udacity.shoestore.modules.shoes.ShoeListFragment"
+        android:label="fragmentShoeList"
+        tools:layout="@layout/fragment_shoe_list">
+        <action
+            android:id="@+id/action_shoeListFragment_to_shoeDetailFragment"
+            app:destination="@id/shoeDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_shoeListFragment_to_splashScreenFragment"
+            app:destination="@id/splashScreenFragment"
+            app:popUpTo="@id/shoeListFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/shoeDetailFragment"
+        android:name="com.udacity.shoestore.modules.shoes.ShoeDetailFragment"
+        android:label="fragmentShoeDetail"
+        tools:layout="@layout/fragment_shoe_detail" >
+        <argument
+            android:name="shoeId"
+            app:argType="integer"
+            android:defaultValue="0"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+</navigation>
