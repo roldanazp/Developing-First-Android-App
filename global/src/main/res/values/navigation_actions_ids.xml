@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="action_splashScreenFragment_to_loginFragment" type="id"/>
+    <item name="action_splashScreenFragment_to_shoeListFragment" type="id"/>
+    <item name="action_splashScreenFragment_to_onboardingWelcomeFragment" type="id"/>
+    <item name="action_loginFragment_to_onboardingWelcomeFragment" type="id"/>
+    <item name="action_onboardingWelcomeFragment_to_onboardingInstructionsFragment" type="id"/>
+    <item name="action_onboardingInstructionsAddShoeFragment_to_onboardingInstructionsFillShoeFieldsFragment" type="id"/>
+    <item name="action_onboardingInstructionsFillShoeFieldsFragment_to_shoeListFragment" type="id"/>
+    <item name="action_shoeListFragment_to_shoeDetailFragment" type="id"/>
+    <item name="action_shoeListFragment_to_splashScreenFragment" type="id"/>
+</resources>

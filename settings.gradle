@@ -1,2 +1,7 @@
 include ':app'
 rootProject.name='ShoeStore'
+include ':splashscreen'
+include ':global'
+include ':onboarding'
+include ':login'
+include ':shoes'

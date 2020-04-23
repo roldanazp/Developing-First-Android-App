@@ -1,9 +1,10 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-//apply plugin: "androidx.navigation.safeargs"
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
@@ -44,9 +45,12 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+
     dataBinding {
-        enabled = true
+        enabled true
     }
+
+
 }
 
 dependencies {
@@ -55,14 +59,9 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.2.0'
-    implementation 'com.google.android.material:material:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
-
 
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
@@ -70,6 +69,27 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation 'com.airbnb.android:lottie:3.3.1'
+
+    implementation project(':global')
+    implementation project(':splashscreen')
+    implementation project(':onboarding')
+    implementation project(':login')
+    implementation project(':shoes')
 
 }
+
+tasks.all { Task task ->
+    if(task.getPath().contains(":app:generateSafeArgs")){
+        task.doLast {
+            copy {
+                from '../app/build/generated/source/navigation-args'
+                into '../global/build/generated/source/navigation-args'
+                filter { line -> line
+                        .replaceAll("com.udacity.shoestore", "com.udacity.shoestore.global")
+                }
+            }
+        }
+    }
+}
+
+
