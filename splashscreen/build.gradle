@@ -4,14 +4,14 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -38,16 +38,16 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
-    testImplementation 'junit:junit:4.13'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "androidx.core:core-ktx:$androidx_core"
+    testImplementation "junit:junit:$junit"
+    androidTestImplementation "androidx.test.ext:junit:$androidx_test_ext"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso"
 
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
-    implementation 'com.jakewharton.timber:timber:4.7.1'
-    implementation 'com.airbnb.android:lottie:3.3.1'
+    implementation "com.jakewharton.timber:timber:$timber"
+    implementation "com.airbnb.android:lottie:$lottie"
 
     implementation project(':global')
 

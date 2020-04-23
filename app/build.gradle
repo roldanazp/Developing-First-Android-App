@@ -8,15 +8,19 @@ apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
     defaultConfig {
-        applicationId "com.udacity.shoestore"
-        minSdkVersion 22
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        applicationId rootProject.ext.applicationId
+
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
     }
 
     signingConfigs {
@@ -56,6 +60,11 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "androidx.core:core-ktx:$androidx_core"
+    testImplementation "junit:junit:$junit"
+    androidTestImplementation "androidx.test.ext:junit:$androidx_test_ext"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso"
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.2.0'
@@ -64,11 +73,6 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     implementation 'com.jakewharton.timber:timber:4.7.1'
-
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
 
     implementation project(':global')
     implementation project(':splashscreen')
